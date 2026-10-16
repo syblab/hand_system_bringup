@@ -1,4 +1,5 @@
 from setuptools import setup
+from glob import glob
 
 package_name = 'hand_system_bringup'
 
@@ -15,10 +16,9 @@ setup(
             'share/' + package_name,
             ['package.xml']
         ),
-        # launch ファイルをインストール
         (
             'share/' + package_name + '/launch',
-            ['launch/hand_system.launch.py']
+            glob('launch/*.launch.py')
         ),
     ],
     install_requires=['setuptools'],
@@ -29,9 +29,7 @@ setup(
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': [
-            # このパッケージは launch 専用なので何もなしでOK
-        ],
+        'console_scripts': [],
     },
 )
 
